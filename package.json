@@ -1,0 +1,25 @@
+{
+  "name": "simple-slack",
+  "version": "0.1.0",
+  "description": "Simple slack API wrapper to handle dumbwaiter's queries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Joeento/simple-slack.git"
+  },
+  "keywords": [
+    "slack",
+    "api",
+    "wrapper",
+    "simple"
+  ],
+  "author": "Eric Kudler <joeento@gmail.com> (http://erickudler.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joeento/simple-slack/issues"
+  },
+  "homepage": "https://github.com/Joeento/simple-slack#readme"
+}
