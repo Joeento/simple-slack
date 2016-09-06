@@ -21,8 +21,7 @@ Slack.prototype.authenticate = function(client_id, client_secret, code, callback
 
 Slack.prototype.api = function(method, args, callback) {
 	args = args || {};
-	args.access_token = this.access_token;
-	console.log(args);
+	args.token = this.access_token;
 	request({
 		url: this.url + method,
 		method: 'POST',
