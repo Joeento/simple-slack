@@ -2,41 +2,31 @@
 
 var request = require('request');
 
-var Slack = function(client_id, client_secret, code) {
+var Slack = function(access_token) {
 	this.url = 'https://slack.com/api/';
-	
-	this.client_id = client_id;
-	this.client_secret = client_secret;
-	this.code = code;
-
-	this.access_token = '';
+	this.access_token = access_token;
 
 };
 
-Slack.prototype.test = function(name) {
-	return 'Test ' + this.url;
-};
-
-Slack.prototype.authenticate = function() {
-
-	this.apiCall('oauth.access',
+Slack.prototype.authenticate = function(client_id, client_secret, code, callback) {
+	this.api('oauth.access',
 	{
-		client_id: this.client_id,
-		client_secret: this.client_secret,
-		code: this.code
+		client_id: client_id,
+		client_secret: client_secret,
+		code: code
 	},
-	function(error, response, body) {
-		console.log(body);
-	});
-
+	callback);
 
 };
 
-Slack.prototype.apiCall = function(method, args, callback) {
+Slack.prototype.api = function(method, args, callback) {
+	args = args || {};
+	args.access_token = this.access_token;
+	console.log(args);
 	request({
 		url: this.url + method,
 		method: 'POST',
-		json: args,
+		formData: args,
 	}, callback);
 
 };
