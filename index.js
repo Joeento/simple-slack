@@ -26,7 +26,9 @@ Slack.prototype.api = function(method, args, callback) {
 		url: this.url + method,
 		method: 'POST',
 		formData: args,
-	}, callback);
+	}, function(error, response, body) {
+		callback(error, response, JSON.parse(body));
+	});
 
 };
 
