@@ -4,7 +4,7 @@ var request = require('request');
 
 var Slack = function(access_token) {
 	this.url = 'https://slack.com/api/';
-	this.access_token = access_token;
+	this.access_token = access_token ? access_token: '';
 
 };
 
